@@ -1,6 +1,9 @@
 class Activity < ApplicationRecord
   # Direct associations
 
+  has_many   :pictures,
+             :dependent => :destroy
+
   has_many   :activity_signups,
              :dependent => :destroy
 
