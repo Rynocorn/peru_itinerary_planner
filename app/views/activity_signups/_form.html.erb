@@ -1,7 +1,6 @@
 <% was_validated = activity_signup.errors.any? %>
 
 <%= form_with(model: activity_signup, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <% user_class = "form-control" %>
     <% user_was_invalid = activity_signup.errors.include?(:user) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
     <% if user_was_invalid %>
       <% activity_signup.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for activity_id start -->
   <div class="form-group">
     <% activity_class = "form-control" %>
     <% activity_was_invalid = activity_signup.errors.include?(:activity) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :activity_id %>
-    <!-- Input for activity_id start -->
     <%= f.collection_select :activity_id, Activity.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for activity_id end -->
     <% if activity_was_invalid %>
       <% activity_signup.errors.full_messages_for(:activity).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for activity_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

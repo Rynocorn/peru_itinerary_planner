@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @booking.user.present? %>
           <%= link_to booking.user, booking.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Flight</dt>
-      <!-- Display flight_id start -->
       <dd>
         <% if @booking.flight.present? %>
           <%= link_to booking.flight, booking.flight %>
         <% end %>
       </dd>
-      <!-- Display flight_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back booking, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link booking start -->
       <div class="col">
         <% if current_user == @booking.user %>
           <%= link_to edit_booking_url(booking), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link booking end -->
 
-      <!-- Delete link booking start -->
       <div class="col">
         <% if current_user == @booking.user %>
           <%= link_to booking, method: :delete, data: { confirm: "Do you really want to delete this booking?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link booking end -->
     </div>
   </div>
 

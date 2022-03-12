@@ -1,12 +1,7 @@
 <% was_validated = booking.errors.any? %>
 
 <%= form_with(model: booking, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for flight_id start -->
   <div class="form-group">
     <% flight_class = "form-control" %>
     <% flight_was_invalid = booking.errors.include?(:flight) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :flight_id %>
-    <!-- Input for flight_id start -->
     <%= f.collection_select :flight_id, Flight.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for flight_id end -->
     <% if flight_was_invalid %>
       <% booking.errors.full_messages_for(:flight).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,6 +24,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for flight_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

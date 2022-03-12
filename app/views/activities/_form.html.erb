@@ -1,7 +1,6 @@
 <% was_validated = activity.errors.any? %>
 
 <%= form_with(model: activity, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = activity.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% activity.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = activity.errors.include?(:date) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.datetime_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% activity.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for city_id start -->
   <div class="form-group">
     <% city_class = "form-control" %>
     <% city_was_invalid = activity.errors.include?(:city) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :city_id %>
-    <!-- Input for city_id start -->
     <%= f.collection_select :city_id, City.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for city_id end -->
     <% if city_was_invalid %>
       <% activity.errors.full_messages_for(:city).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for city_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

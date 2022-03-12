@@ -1,7 +1,6 @@
 <% was_validated = picture.errors.any? %>
 
 <%= form_with(model: picture, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for activity_id start -->
   <div class="form-group">
     <% activity_class = "form-control" %>
     <% activity_was_invalid = picture.errors.include?(:activity) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :activity_id %>
-    <!-- Input for activity_id start -->
     <%= f.collection_select :activity_id, Activity.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for activity_id end -->
     <% if activity_was_invalid %>
       <% picture.errors.full_messages_for(:activity).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for activity_id end -->
-  <!-- Label and input for picture start -->
   <div class="form-group">
     <% picture_class = "form-control" %>
     <% picture_was_invalid = picture.errors.include?(:picture) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :picture %>
-    <!-- Input for picture start -->
     <%= f.file_field :picture, class: "form-control" %>
-    <!-- Input for picture end -->
     <% if picture_was_invalid %>
       <% picture.errors.full_messages_for(:picture).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for picture end -->
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = picture.errors.include?(:name) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% picture.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

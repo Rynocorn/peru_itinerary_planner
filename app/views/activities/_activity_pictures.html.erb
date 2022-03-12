@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @activity.pictures.each do |picture| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to picture, picture %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to picture, method: :delete, data: { confirm: "Do you really want to delete this picture" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="activity_pictures_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "activities/activity_pictures_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

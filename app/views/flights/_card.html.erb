@@ -6,19 +6,13 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Origin</dt>
-      <!-- Display origin start -->
       <dd><%= flight.origin %></dd>
-      <!-- Display origin end -->
 
       <dt>Destination</dt>
-      <!-- Display destination start -->
       <dd><%= flight.destination %></dd>
-      <!-- Display destination end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= flight.date %></dd>
-      <!-- Display date end -->
 
     </dl>
 
@@ -27,21 +21,17 @@
         <%= link_to_show_or_back flight, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link flight start -->
       <div class="col">
         <%= link_to edit_flight_url(flight), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link flight end -->
 
-      <!-- Delete link flight start -->
       <div class="col">
         <%= link_to flight, method: :delete, data: { confirm: "Do you really want to delete this flight?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link flight end -->
     </div>
   </div>
 

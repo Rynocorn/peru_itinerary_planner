@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @flight.bookings.each do |booking| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to booking, booking %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == booking.user %>
           <%= link_to booking, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="flight_bookings_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "flights/flight_bookings_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

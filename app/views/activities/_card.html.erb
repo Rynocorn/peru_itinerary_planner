@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= activity.name %></dd>
-      <!-- Display name end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= activity.date %></dd>
-      <!-- Display date end -->
 
       <dt>City</dt>
-      <!-- Display city_id start -->
       <dd>
         <% if @activity.city.present? %>
           <%= link_to activity.city, activity.city %>
         <% end %>
       </dd>
-      <!-- Display city_id end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back activity, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activity start -->
       <div class="col">
         <%= link_to edit_activity_url(activity), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link activity end -->
 
-      <!-- Delete link activity start -->
       <div class="col">
         <%= link_to activity, method: :delete, data: { confirm: "Do you really want to delete this activity?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link activity end -->
     </div>
   </div>
 

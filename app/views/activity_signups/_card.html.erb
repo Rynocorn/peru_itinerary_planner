@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @activity_signup.user.present? %>
           <%= link_to activity_signup.user, activity_signup.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Activity</dt>
-      <!-- Display activity_id start -->
       <dd>
         <% if @activity_signup.activity.present? %>
           <%= link_to activity_signup.activity, activity_signup.activity %>
         <% end %>
       </dd>
-      <!-- Display activity_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back activity_signup, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link activity_signup start -->
       <div class="col">
         <%= link_to edit_activity_signup_url(activity_signup), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link activity_signup end -->
 
-      <!-- Delete link activity_signup start -->
       <div class="col">
         <%= link_to activity_signup, method: :delete, data: { confirm: "Do you really want to delete this activity_signup?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link activity_signup end -->
     </div>
   </div>
 

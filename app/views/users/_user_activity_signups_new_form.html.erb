@@ -1,22 +1,12 @@
-<!-- Form activity_signup start -->
 <%= form_with(model: @activity_signup, local: true) do |f| %>
-<!-- Form activity_signup end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for activity_id start -->
   <div class="form-group">
     <%= f.label :activity_id %>
 
-    <!-- Input for activity_id start -->
     <%= f.collection_select :activity_id, Activity.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for activity_id end -->
   </div>
-  <!-- Label and input for activity_id end -->
 
   <%= f.submit "Create activity signup", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
