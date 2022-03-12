@@ -42,8 +42,14 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   def destroy
     @picture.destroy
-    redirect_to pictures_url, notice: 'Picture was successfully destroyed.'
+    message = "Picture was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to pictures_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

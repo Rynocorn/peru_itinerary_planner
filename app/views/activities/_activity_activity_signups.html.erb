@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Activity Signups
+
+    <a data-toggle="collapse" href="#activity_activity_signups_new_form">
+      Add activity signup
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @activity.activity_signups.each do |activity_signup| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to activity_signup, activity_signup %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to activity_signup, method: :delete, data: { confirm: "Do you really want to delete this activity_signup" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="activity_activity_signups_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>
