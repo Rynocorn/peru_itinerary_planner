@@ -1,24 +1,19 @@
 class HotelsController < ApplicationController
   before_action :set_hotel, only: %i[show edit update destroy]
 
-  # GET /hotels
   def index
     @q = Hotel.ransack(params[:q])
     @hotels = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
   end
 
-  # GET /hotels/1
   def show; end
 
-  # GET /hotels/new
   def new
     @hotel = Hotel.new
   end
 
-  # GET /hotels/1/edit
   def edit; end
 
-  # POST /hotels
   def create
     @hotel = Hotel.new(hotel_params)
 
@@ -34,7 +29,6 @@ class HotelsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /hotels/1
   def update
     if @hotel.update(hotel_params)
       redirect_to @hotel, notice: "Hotel was successfully updated."
@@ -43,7 +37,6 @@ class HotelsController < ApplicationController
     end
   end
 
-  # DELETE /hotels/1
   def destroy
     @hotel.destroy
     message = "Hotel was successfully deleted."
@@ -56,12 +49,10 @@ class HotelsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_hotel
     @hotel = Hotel.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def hotel_params
     params.require(:hotel).permit(:name, :location, :user_id)
   end
