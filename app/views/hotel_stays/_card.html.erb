@@ -1,0 +1,46 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Hotel Stay #<%= hotel_stay.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Hotel</dt>
+      <dd>
+        <% if @hotel_stay.hotel.present? %>
+          <%= link_to hotel_stay.hotel, hotel_stay.hotel %>
+        <% end %>
+      </dd>
+
+      <dt>User</dt>
+      <dd>
+        <% if @hotel_stay.user.present? %>
+          <%= link_to hotel_stay.user, hotel_stay.user %>
+        <% end %>
+      </dd>
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back hotel_stay, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <div class="col">
+        <%= link_to edit_hotel_stay_url(hotel_stay), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+
+      <div class="col">
+        <%= link_to hotel_stay, method: :delete, data: { confirm: "Do you really want to delete this hotel_stay?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(hotel_stay.updated_at) %> ago
+  </div>
+</div>

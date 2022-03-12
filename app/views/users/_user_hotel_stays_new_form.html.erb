@@ -1,0 +1,12 @@
+<%= form_with(model: @hotel_stay, local: true) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :hotel_id %>
+
+    <%= f.collection_select :hotel_id, Hotel.all, :id, :to_s, {}, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <%= f.submit "Create hotel stay", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

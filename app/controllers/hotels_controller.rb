@@ -3,10 +3,13 @@ class HotelsController < ApplicationController
 
   def index
     @q = Hotel.ransack(params[:q])
-    @hotels = @q.result(distinct: true).includes(:user).page(params[:page]).per(10)
+    @hotels = @q.result(distinct: true).includes(:hotel_stays,
+                                                 :city).page(params[:page]).per(10)
   end
 
-  def show; end
+  def show
+    @hotel_stay = HotelStay.new
+  end
 
   def new
     @hotel = Hotel.new
@@ -54,6 +57,6 @@ class HotelsController < ApplicationController
   end
 
   def hotel_params
-    params.require(:hotel).permit(:name, :location, :user_id)
+    params.require(:hotel).permit(:name, :city_id, :user_id)
   end
 end

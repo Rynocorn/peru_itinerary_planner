@@ -1,10 +1,5 @@
-<%= search_form_for @q, :class => collapse_search_form, :id => "cities_filters" do |f| %>
+<%= search_form_for @q, :class => collapse_search_form, :id => "hotel_stays_filters" do |f| %>
   <p class="lead">Narrow results:</p>
-
-  <div class="form-group">
-    <%= f.label :name_cont, "Name contains" %>
-    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
-  </div>
 
   <div class="form-group">
     <%= f.label :created_at, "Created at" %>
@@ -48,22 +43,22 @@
 
 
   <div class="form-group">
-    <%= f.label :activities_name_cont, "Activities name contains" %>
-    <%= f.text_field :activities_name_cont, :class => "form-control", :placeholder => "Activities name contains" %>
+    <%= f.label :user_email_cont, "User email contains" %>
+    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :hotels_name_cont, "Hotels name contains" %>
-    <%= f.text_field :hotels_name_cont, :class => "form-control", :placeholder => "Hotels name contains" %>
+    <%= f.label :hotel_name_cont, "Hotel name contains" %>
+    <%= f.text_field :hotel_name_cont, :class => "form-control", :placeholder => "Hotel name contains" %>
   </div>
 
 
   <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
-  <a href="/cities" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+  <a href="/hotel_stays" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
 
 <% end %>
 
-<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#cities_filters">
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#hotel_stays_filters">
   Show filters
 </a>

@@ -8,15 +8,15 @@
       <dt>Name</dt>
       <dd><%= hotel.name %></dd>
 
-      <dt>Location</dt>
-      <dd><%= hotel.location %></dd>
-
-      <dt>User</dt>
+      <dt>City</dt>
       <dd>
-        <% if @hotel.user.present? %>
-          <%= link_to hotel.user, hotel.user %>
+        <% if @hotel.city.present? %>
+          <%= link_to hotel.city, hotel.city %>
         <% end %>
       </dd>
+
+      <dt>User</dt>
+      <dd><%= hotel.user_id %></dd>
 
     </dl>
 

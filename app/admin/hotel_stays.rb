@@ -1,5 +1,5 @@
-ActiveAdmin.register Hotel do
-  permit_params :name, :city_id, :user_id
+ActiveAdmin.register HotelStay do
+  permit_params :hotel_id, :user_id
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

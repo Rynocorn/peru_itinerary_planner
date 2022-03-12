@@ -1,16 +1,15 @@
-class HotelResource < ApplicationResource
+class HotelStayResource < ApplicationResource
   attribute :id, :integer, writable: false
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
-  attribute :name, :string
-  attribute :city_id, :integer
+  attribute :hotel_id, :integer
   attribute :user_id, :integer
 
   # Direct associations
 
-  belongs_to :city
+  belongs_to :hotel
 
-  has_many   :hotel_stays
+  belongs_to :user
 
   # Indirect associations
 end

@@ -24,21 +24,21 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% location_class = "form-control" %>
-    <% location_was_invalid = hotel.errors.include?(:location) %>
+    <% city_class = "form-control" %>
+    <% city_was_invalid = hotel.errors.include?(:city) %>
 
     <% if was_validated %>
-      <% if location_was_invalid %>
-        <% location_class << " is-invalid" %>
+      <% if city_was_invalid %>
+        <% city_class << " is-invalid" %>
       <% else %>
-        <% location_class << " is-valid" %>
+        <% city_class << " is-valid" %>
       <% end %>
     <% end %>
 
-    <%= f.label :location %>
-    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
-    <% if location_was_invalid %>
-      <% hotel.errors.full_messages_for(:location).each do |message| %>
+    <%= f.label :city_id %>
+    <%= f.collection_select :city_id, City.all, :id, :to_s, {}, class: "form-control" %>
+    <% if city_was_invalid %>
+      <% hotel.errors.full_messages_for(:city).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>
@@ -58,7 +58,7 @@
     <% end %>
 
     <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.number_field :user_id, class: user_class, placeholder: "Enter user" %>
     <% if user_was_invalid %>
       <% hotel.errors.full_messages_for(:user).each do |message| %>
         <div class="invalid-feedback d-flex">
