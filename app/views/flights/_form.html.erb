@@ -1,0 +1,83 @@
+<% was_validated = flight.errors.any? %>
+
+<%= form_with(model: flight, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for origin start -->
+  <div class="form-group">
+    <% origin_class = "form-control" %>
+    <% origin_was_invalid = flight.errors.include?(:origin) %>
+
+    <% if was_validated %>
+      <% if origin_was_invalid %>
+        <% origin_class << " is-invalid" %>
+      <% else %>
+        <% origin_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :origin %>
+    <!-- Input for origin start -->
+    <%= f.text_field :origin, class: origin_class, placeholder: "Enter origin" %>
+    <!-- Input for origin end -->
+    <% if origin_was_invalid %>
+      <% flight.errors.full_messages_for(:origin).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for origin end -->
+  <!-- Label and input for destination start -->
+  <div class="form-group">
+    <% destination_class = "form-control" %>
+    <% destination_was_invalid = flight.errors.include?(:destination) %>
+
+    <% if was_validated %>
+      <% if destination_was_invalid %>
+        <% destination_class << " is-invalid" %>
+      <% else %>
+        <% destination_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :destination %>
+    <!-- Input for destination start -->
+    <%= f.text_field :destination, class: destination_class, placeholder: "Enter destination" %>
+    <!-- Input for destination end -->
+    <% if destination_was_invalid %>
+      <% flight.errors.full_messages_for(:destination).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for destination end -->
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <% date_class = "form-control" %>
+    <% date_was_invalid = flight.errors.include?(:date) %>
+
+    <% if was_validated %>
+      <% if date_was_invalid %>
+        <% date_class << " is-invalid" %>
+      <% else %>
+        <% date_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :date %>
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
+    <!-- Input for date end -->
+    <% if date_was_invalid %>
+      <% flight.errors.full_messages_for(:date).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for date end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
