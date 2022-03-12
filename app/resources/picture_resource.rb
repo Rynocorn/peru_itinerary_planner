@@ -8,6 +8,8 @@ class PictureResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :activity
+
   # Indirect associations
 
 end
