@@ -1,6 +1,8 @@
 class Activity < ApplicationRecord
   # Direct associations
 
+  belongs_to :city
+
   has_many   :pictures,
              :dependent => :destroy
 
