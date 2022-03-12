@@ -9,6 +9,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :activity_signups
+
   has_many   :bookings
 
   # Indirect associations
