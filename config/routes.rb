@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activity_signups
   resources :bookings
   resources :cities
   resources :hotels
