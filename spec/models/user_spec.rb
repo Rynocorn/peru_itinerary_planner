@@ -4,6 +4,8 @@ RSpec.describe User, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:activity_signups) }
+
     it { should have_many(:bookings) }
 
     end

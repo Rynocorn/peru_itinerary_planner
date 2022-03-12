@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :activity_signups,
+             :dependent => :destroy
+
   has_many   :bookings,
              :dependent => :destroy
 
