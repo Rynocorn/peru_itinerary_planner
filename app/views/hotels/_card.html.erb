@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Hotel #<%= hotel.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= hotel.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= hotel.location %></dd>
+      <!-- Display location end -->
+
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= hotel.user_id %></dd>
+      <!-- Display user_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back hotel, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link hotel start -->
+      <div class="col">
+        <%= link_to edit_hotel_url(hotel), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link hotel end -->
+
+      <!-- Delete link hotel start -->
+      <div class="col">
+        <%= link_to hotel, method: :delete, data: { confirm: "Do you really want to delete this hotel?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link hotel end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(hotel.updated_at) %> ago
+  </div>
+</div>
