@@ -1,10 +1,10 @@
 class FlightsController < ApplicationController
-  before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :set_flight, only: %i[show edit update destroy]
 
   # GET /flights
   def index
     @q = Flight.ransack(params[:q])
-    @flights = @q.result(:distinct => true).includes(:bookings).page(params[:page]).per(10)
+    @flights = @q.result(distinct: true).includes(:bookings).page(params[:page]).per(10)
   end
 
   # GET /flights/1
@@ -18,15 +18,14 @@ class FlightsController < ApplicationController
   end
 
   # GET /flights/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /flights
   def create
     @flight = Flight.new(flight_params)
 
     if @flight.save
-      redirect_to @flight, notice: 'Flight was successfully created.'
+      redirect_to @flight, notice: "Flight was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class FlightsController < ApplicationController
   # PATCH/PUT /flights/1
   def update
     if @flight.update(flight_params)
-      redirect_to @flight, notice: 'Flight was successfully updated.'
+      redirect_to @flight, notice: "Flight was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,18 @@ class FlightsController < ApplicationController
   # DELETE /flights/1
   def destroy
     @flight.destroy
-    redirect_to flights_url, notice: 'Flight was successfully destroyed.'
+    redirect_to flights_url, notice: "Flight was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_flight
-      @flight = Flight.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def flight_params
-      params.require(:flight).permit(:origin, :destination, :date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_flight
+    @flight = Flight.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def flight_params
+    params.require(:flight).permit(:origin, :destination, :date)
+  end
 end

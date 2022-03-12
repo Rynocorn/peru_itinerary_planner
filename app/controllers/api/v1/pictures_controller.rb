@@ -13,7 +13,7 @@ class Api::V1::PicturesController < Api::V1::GraphitiController
     picture = PictureResource.build(params)
 
     if picture.save
-      render jsonapi: picture, status: 201
+      render jsonapi: picture, status: :created
     else
       render jsonapi_errors: picture
     end
@@ -33,7 +33,7 @@ class Api::V1::PicturesController < Api::V1::GraphitiController
     picture = PictureResource.find(params)
 
     if picture.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: picture
     end

@@ -13,7 +13,7 @@ class Api::V1::CitiesController < Api::V1::GraphitiController
     city = CityResource.build(params)
 
     if city.save
-      render jsonapi: city, status: 201
+      render jsonapi: city, status: :created
     else
       render jsonapi_errors: city
     end
@@ -33,7 +33,7 @@ class Api::V1::CitiesController < Api::V1::GraphitiController
     city = CityResource.find(params)
 
     if city.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: city
     end

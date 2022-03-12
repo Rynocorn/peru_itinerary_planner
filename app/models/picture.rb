@@ -14,5 +14,4 @@ class Picture < ApplicationRecord
   def to_s
     activity.to_s
   end
-
 end

@@ -2,7 +2,7 @@ class City < ApplicationRecord
   # Direct associations
 
   has_many   :activities,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class City < ApplicationRecord
   def to_s
     name
   end
-
 end

@@ -4,10 +4,10 @@ class Activity < ApplicationRecord
   belongs_to :city
 
   has_many   :pictures,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :activity_signups,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class Activity < ApplicationRecord
   def to_s
     name
   end
-
 end

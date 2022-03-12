@@ -11,5 +11,4 @@ class HotelResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

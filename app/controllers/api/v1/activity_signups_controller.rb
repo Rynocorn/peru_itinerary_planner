@@ -13,7 +13,7 @@ class Api::V1::ActivitySignupsController < Api::V1::GraphitiController
     activity_signup = ActivitySignupResource.build(params)
 
     if activity_signup.save
-      render jsonapi: activity_signup, status: 201
+      render jsonapi: activity_signup, status: :created
     else
       render jsonapi_errors: activity_signup
     end
@@ -33,7 +33,7 @@ class Api::V1::ActivitySignupsController < Api::V1::GraphitiController
     activity_signup = ActivitySignupResource.find(params)
 
     if activity_signup.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: activity_signup
     end

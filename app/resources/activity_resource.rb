@@ -15,5 +15,4 @@ class ActivityResource < ApplicationResource
   has_many   :activity_signups
 
   # Indirect associations
-
 end

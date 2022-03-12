@@ -8,8 +8,7 @@ class FlightResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :bookings
+  has_many :bookings
 
   # Indirect associations
-
 end

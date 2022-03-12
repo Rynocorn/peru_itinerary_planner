@@ -13,7 +13,7 @@ class Api::V1::HotelsController < Api::V1::GraphitiController
     hotel = HotelResource.build(params)
 
     if hotel.save
-      render jsonapi: hotel, status: 201
+      render jsonapi: hotel, status: :created
     else
       render jsonapi_errors: hotel
     end
@@ -33,7 +33,7 @@ class Api::V1::HotelsController < Api::V1::GraphitiController
     hotel = HotelResource.find(params)
 
     if hotel.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: hotel
     end

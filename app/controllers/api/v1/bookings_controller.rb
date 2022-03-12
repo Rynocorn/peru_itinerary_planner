@@ -13,7 +13,7 @@ class Api::V1::BookingsController < Api::V1::GraphitiController
     booking = BookingResource.build(params)
 
     if booking.save
-      render jsonapi: booking, status: 201
+      render jsonapi: booking, status: :created
     else
       render jsonapi_errors: booking
     end
@@ -33,7 +33,7 @@ class Api::V1::BookingsController < Api::V1::GraphitiController
     booking = BookingResource.find(params)
 
     if booking.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: booking
     end

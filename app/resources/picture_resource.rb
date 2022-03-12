@@ -11,5 +11,4 @@ class PictureResource < ApplicationResource
   belongs_to :activity
 
   # Indirect associations
-
 end

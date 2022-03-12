@@ -2,7 +2,7 @@ class Flight < ApplicationRecord
   # Direct associations
 
   has_many   :bookings,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
@@ -13,5 +13,4 @@ class Flight < ApplicationRecord
   def to_s
     origin
   end
-
 end
