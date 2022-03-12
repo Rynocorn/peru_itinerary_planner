@@ -7,6 +7,8 @@ class BookingResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :flight
+
   belongs_to :user
 
   # Indirect associations
