@@ -57,6 +57,6 @@ class HotelsController < ApplicationController
   end
 
   def hotel_params
-    params.require(:hotel).permit(:name, :city_id, :user_id)
+    params.require(:hotel).permit(:name, :city_id, :price)
   end
 end
