@@ -16,7 +16,7 @@
 
     <%= f.label :activity_id %>
     <!-- Input for activity_id start -->
-    <%= f.number_field :activity_id, class: activity_class, placeholder: "Enter activity" %>
+    <%= f.collection_select :activity_id, Activity.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for activity_id end -->
     <% if activity_was_invalid %>
       <% picture.errors.full_messages_for(:activity).each do |message| %>
