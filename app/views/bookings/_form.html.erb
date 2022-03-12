@@ -42,7 +42,7 @@
 
     <%= f.label :flight_id %>
     <!-- Input for flight_id start -->
-    <%= f.number_field :flight_id, class: flight_class, placeholder: "Enter flight" %>
+    <%= f.collection_select :flight_id, Flight.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for flight_id end -->
     <% if flight_was_invalid %>
       <% booking.errors.full_messages_for(:flight).each do |message| %>
