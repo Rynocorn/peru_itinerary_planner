@@ -3,7 +3,8 @@ class ActivitySignupsController < ApplicationController
 
   # GET /activity_signups
   def index
-    @activity_signups = ActivitySignup.page(params[:page]).per(10)
+    @q = ActivitySignup.ransack(params[:q])
+    @activity_signups = @q.result(:distinct => true).includes(:user, :activity).page(params[:page]).per(10)
   end
 
   # GET /activity_signups/1

@@ -3,7 +3,8 @@ class FlightsController < ApplicationController
 
   # GET /flights
   def index
-    @flights = Flight.page(params[:page]).per(10)
+    @q = Flight.ransack(params[:q])
+    @flights = @q.result(:distinct => true).includes(:bookings).page(params[:page]).per(10)
   end
 
   # GET /flights/1

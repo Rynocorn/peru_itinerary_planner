@@ -3,7 +3,8 @@ class PicturesController < ApplicationController
 
   # GET /pictures
   def index
-    @pictures = Picture.page(params[:page]).per(10)
+    @q = Picture.ransack(params[:q])
+    @pictures = @q.result(:distinct => true).includes(:activity).page(params[:page]).per(10)
   end
 
   # GET /pictures/1

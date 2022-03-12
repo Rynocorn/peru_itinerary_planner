@@ -3,7 +3,8 @@ class HotelsController < ApplicationController
 
   # GET /hotels
   def index
-    @hotels = Hotel.page(params[:page]).per(10)
+    @q = Hotel.ransack(params[:q])
+    @hotels = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
   end
 
   # GET /hotels/1

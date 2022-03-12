@@ -3,7 +3,8 @@ class CitiesController < ApplicationController
 
   # GET /cities
   def index
-    @cities = City.page(params[:page]).per(10)
+    @q = City.ransack(params[:q])
+    @cities = @q.result(:distinct => true).includes(:activities).page(params[:page]).per(10)
   end
 
   # GET /cities/1

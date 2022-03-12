@@ -3,7 +3,8 @@ class ActivitiesController < ApplicationController
 
   # GET /activities
   def index
-    @activities = Activity.page(params[:page]).per(10)
+    @q = Activity.ransack(params[:q])
+    @activities = @q.result(:distinct => true).includes(:activity_signups, :pictures, :city).page(params[:page]).per(10)
   end
 
   # GET /activities/1
