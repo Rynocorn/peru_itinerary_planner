@@ -1,6 +1,9 @@
 class Flight < ApplicationRecord
   # Direct associations
 
+  has_many   :bookings,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
