@@ -4,6 +4,8 @@ RSpec.describe Activity, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:activity_signups) }
+
     end
 
     describe "InDirect Associations" do
