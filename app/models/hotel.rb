@@ -1,7 +1,10 @@
 class Hotel < ApplicationRecord
   # Direct associations
 
-  belongs_to :user
+  belongs_to :city
+
+  has_many   :hotel_stays,
+             dependent: :destroy
 
   # Indirect associations
 

@@ -1,6 +1,9 @@
 class City < ApplicationRecord
   # Direct associations
 
+  has_many   :hotels,
+             dependent: :destroy
+
   has_many   :activities,
              dependent: :destroy
 

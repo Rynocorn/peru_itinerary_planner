@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @hotel = Hotel.new
+    @hotel_stay = HotelStay.new
     @activity_signup = ActivitySignup.new
     @booking = Booking.new
   end

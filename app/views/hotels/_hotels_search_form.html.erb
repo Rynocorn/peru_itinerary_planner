@@ -7,8 +7,15 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :location_cont, "Location contains" %>
-    <%= f.text_field :location_cont, :class => "form-control", :placeholder => "Location contains" %>
+    <%= f.label :user_id, "User" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :user_id_gteq, :class => "form-control", :placeholder => "User greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :user_id_lteq, :class => "form-control", :placeholder => "User less than or equal to" %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
@@ -53,8 +60,8 @@
 
 
   <div class="form-group">
-    <%= f.label :user_email_cont, "User email contains" %>
-    <%= f.text_field :user_email_cont, :class => "form-control", :placeholder => "User email contains" %>
+    <%= f.label :city_name_cont, "City name contains" %>
+    <%= f.text_field :city_name_cont, :class => "form-control", :placeholder => "City name contains" %>
   </div>
 
 

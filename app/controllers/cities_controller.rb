@@ -3,10 +3,12 @@ class CitiesController < ApplicationController
 
   def index
     @q = City.ransack(params[:q])
-    @cities = @q.result(distinct: true).includes(:activities).page(params[:page]).per(10)
+    @cities = @q.result(distinct: true).includes(:activities,
+                                                 :hotels).page(params[:page]).per(10)
   end
 
   def show
+    @hotel = Hotel.new
     @activity = Activity.new
   end
 

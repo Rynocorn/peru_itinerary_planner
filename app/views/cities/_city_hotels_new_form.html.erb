@@ -6,13 +6,13 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
 
+  <%= f.hidden_field :city_id, value: @city.id %>
+
   <div class="form-group">
-    <%= f.label :location %>
+    <%= f.label :user_id %>
 
-    <%= f.text_field :location, class: "form-control" %>
+    <%= f.text_field :user_id, class: "form-control" %>
   </div>
-
-  <%= f.hidden_field :user_id, value: @user.id %>
 
   <%= f.submit "Create hotel", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

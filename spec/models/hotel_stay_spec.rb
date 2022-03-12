@@ -1,10 +1,10 @@
 require "rails_helper"
 
-RSpec.describe City, type: :model do
+RSpec.describe HotelStay, type: :model do
   describe "Direct Associations" do
-    it { should have_many(:hotels) }
+    it { should belong_to(:hotel) }
 
-    it { should have_many(:activities) }
+    it { should belong_to(:user) }
   end
 
   describe "InDirect Associations" do

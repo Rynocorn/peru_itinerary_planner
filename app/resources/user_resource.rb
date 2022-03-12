@@ -9,7 +9,7 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :hotels
+  has_many   :hotel_stays
 
   has_many   :activity_signups
 

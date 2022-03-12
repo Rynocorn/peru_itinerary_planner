@@ -1,0 +1,49 @@
+<% was_validated = hotel_stay.errors.any? %>
+
+<%= form_with(model: hotel_stay, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <div class="form-group">
+    <% hotel_class = "form-control" %>
+    <% hotel_was_invalid = hotel_stay.errors.include?(:hotel) %>
+
+    <% if was_validated %>
+      <% if hotel_was_invalid %>
+        <% hotel_class << " is-invalid" %>
+      <% else %>
+        <% hotel_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :hotel_id %>
+    <%= f.collection_select :hotel_id, Hotel.all, :id, :to_s, {}, class: "form-control" %>
+    <% if hotel_was_invalid %>
+      <% hotel_stay.errors.full_messages_for(:hotel).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% user_class = "form-control" %>
+    <% user_was_invalid = hotel_stay.errors.include?(:user) %>
+
+    <% if was_validated %>
+      <% if user_was_invalid %>
+        <% user_class << " is-invalid" %>
+      <% else %>
+        <% user_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
+    <% if user_was_invalid %>
+      <% hotel_stay.errors.full_messages_for(:user).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

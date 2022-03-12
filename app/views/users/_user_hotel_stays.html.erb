@@ -1,23 +1,23 @@
 <div class="card">
   <div class="card-header d-flex align-items-center justify-content-between">
-    Hotels
+    Hotel Stays
 
-    <a data-toggle="collapse" href="#user_hotels_new_form">
-      Add hotel
+    <a data-toggle="collapse" href="#user_hotel_stays_new_form">
+      Add hotel stay
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @user.hotels.each do |hotel| %>
+    <% @user.hotel_stays.each do |hotel_stay| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <%= link_to hotel, hotel %>
+        <%= link_to hotel_stay, hotel_stay %>
 
       </li>
     <% end %>
 
     <div class="card-footer">
-      <div class="collapse" id="user_hotels_new_form">
-        <%= render partial: "users/user_hotels_new_form" %>
+      <div class="collapse" id="user_hotel_stays_new_form">
+        <%= render partial: "users/user_hotel_stays_new_form" %>
       </div>
     </div>
 
