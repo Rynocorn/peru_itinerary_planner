@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
 
   # GET /hotels
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.page(params[:page]).per(10)
   end
 
   # GET /hotels/1

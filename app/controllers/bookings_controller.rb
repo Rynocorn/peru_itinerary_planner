@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings
   def index
-    @bookings = Booking.all
+    @bookings = Booking.page(params[:page]).per(10)
   end
 
   # GET /bookings/1
