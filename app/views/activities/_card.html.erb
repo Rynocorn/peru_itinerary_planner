@@ -17,7 +17,11 @@
 
       <dt>City</dt>
       <!-- Display city_id start -->
-      <dd><%= activity.city_id %></dd>
+      <dd>
+        <% if @activity.city.present? %>
+          <%= link_to activity.city, activity.city %>
+        <% end %>
+      </dd>
       <!-- Display city_id end -->
 
     </dl>

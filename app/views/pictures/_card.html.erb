@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Activity</dt>
       <!-- Display activity_id start -->
-      <dd><%= picture.activity_id %></dd>
+      <dd>
+        <% if @picture.activity.present? %>
+          <%= link_to picture.activity, picture.activity %>
+        <% end %>
+      </dd>
       <!-- Display activity_id end -->
 
       <dt>Picture</dt>

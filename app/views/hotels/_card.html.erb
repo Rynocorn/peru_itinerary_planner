@@ -17,7 +17,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= hotel.user_id %></dd>
+      <dd>
+        <% if @hotel.user.present? %>
+          <%= link_to hotel.user, hotel.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>
