@@ -8,6 +8,8 @@ class ActivityResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :city
+
   has_many   :pictures
 
   has_many   :activity_signups

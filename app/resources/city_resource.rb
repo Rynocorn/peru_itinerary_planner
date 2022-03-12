@@ -6,6 +6,8 @@ class CityResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :activities
+
   # Indirect associations
 
 end
