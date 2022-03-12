@@ -4,7 +4,7 @@ class HotelResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :name, :string
   attribute :city_id, :integer
-  attribute :user_id, :integer
+  attribute :price, :float
 
   # Direct associations
 
