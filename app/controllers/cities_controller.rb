@@ -8,6 +8,7 @@ class CitiesController < ApplicationController
 
   # GET /cities/1
   def show
+    @activity = Activity.new
   end
 
   # GET /cities/new

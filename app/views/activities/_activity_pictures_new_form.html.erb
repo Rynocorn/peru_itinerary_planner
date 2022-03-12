@@ -1,0 +1,32 @@
+<!-- Form picture start -->
+<%= form_with(model: @picture, local: true) do |f| %>
+<!-- Form picture end -->
+
+  <!-- Label and input for activity_id start -->
+  <!-- Input for activity_id start -->
+  <%= f.hidden_field :activity_id, value: @activity.id %>
+  <!-- Input for activity_id end -->
+  <!-- Label and input for activity_id end -->
+
+  <!-- Label and input for picture start -->
+  <div class="form-group">
+    <%= f.label :picture %>
+
+    <!-- Input for picture start -->
+    <%= f.text_field :picture, class: "form-control" %>
+    <!-- Input for picture end -->
+  </div>
+  <!-- Label and input for picture end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: "form-control" %>
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <%= f.submit "Create picture", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

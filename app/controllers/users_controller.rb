@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @hotel = Hotel.new
+    @activity_signup = ActivitySignup.new
+    @booking = Booking.new
   end
 
   # GET /users/new

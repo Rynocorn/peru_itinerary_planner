@@ -8,6 +8,8 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1
   def show
+    @picture = Picture.new
+    @activity_signup = ActivitySignup.new
   end
 
   # GET /activities/new
@@ -24,7 +26,12 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
 
     if @activity.save
-      redirect_to @activity, notice: 'Activity was successfully created.'
+      message = 'Activity was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @activity, notice: message
+      end
     else
       render :new
     end

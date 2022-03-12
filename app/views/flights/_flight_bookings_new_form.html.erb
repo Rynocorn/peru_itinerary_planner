@@ -1,0 +1,22 @@
+<!-- Form booking start -->
+<%= form_with(model: @booking, local: true) do |f| %>
+<!-- Form booking end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <%= f.label :user_id %>
+
+    <!-- Input for user_id start -->
+    <%= f.text_field :user_id, class: "form-control" %>
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for flight_id start -->
+  <!-- Input for flight_id start -->
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+  <!-- Input for flight_id end -->
+  <!-- Label and input for flight_id end -->
+
+  <%= f.submit "Create booking", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

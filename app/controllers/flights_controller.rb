@@ -8,6 +8,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1
   def show
+    @booking = Booking.new
   end
 
   # GET /flights/new

@@ -24,7 +24,12 @@ class ActivitySignupsController < ApplicationController
     @activity_signup = ActivitySignup.new(activity_signup_params)
 
     if @activity_signup.save
-      redirect_to @activity_signup, notice: 'Activity signup was successfully created.'
+      message = 'ActivitySignup was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @activity_signup, notice: message
+      end
     else
       render :new
     end
